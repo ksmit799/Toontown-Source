@@ -37,4 +37,4 @@ The resource files (Commonly refered to as "Phase Files") are the assets for the
 
 ## About
 
-Toontown Source is being developed completely from scratch without the use of any other files from other remakes (KEEP THIS IN MIND WHEN CONTRIBUTING!). The source code used in this repository was taken from [this](https://github.com/ToontownLover/Toontown-Online-2013) repository. We might have a discord server in the future, depends how many people are interested.
+Toontown Source is being developed completely from scratch without the use of any other files from other remakes (KEEP THIS IN MIND WHEN CONTRIBUTING!). The source code used in this repository was taken from [this](https://github.com/Toonerz/Possible-Toontown-Online-Source) repository. We might have a discord server in the future, depends how many people are interested.
