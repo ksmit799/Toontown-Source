@@ -1,7 +1,4 @@
-import os
-import sys
-import time
-import types
+import os, sys, time, types
 
 ltime = 1 and time.localtime()
 logSuffix = '%02d%02d%02d_%02d%02d%02d' % (ltime[0] - 2000,  ltime[1], ltime[2],
@@ -24,7 +21,7 @@ class LogAndOutput:
         self.log.flush()
         self.orig.flush()
 
-log = open(logfile, 'a')
+log = open("logs/" + logfile, 'a')
 logOut = LogAndOutput(sys.__stdout__, log)
 logErr = LogAndOutput(sys.__stderr__, log)
 sys.stdout = logOut
@@ -37,9 +34,9 @@ if 1:
     print 'sys.path = ', sys.path
     print 'sys.argv = ', sys.argv
 
+from panda3d.core import *
 from otp.launcher.LauncherBase import LauncherBase
 from otp.otpbase import OTPLauncherGlobals
-from pandac.libpandaexpressModules import *
 from toontown.toonbase import TTLocalizer
 
 class ToontownLauncher(LauncherBase):

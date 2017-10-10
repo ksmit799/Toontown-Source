@@ -1,16 +1,14 @@
+import sys, os, math
+from panda3d.core import *
+from direct.showbase.PythonUtil import *
+from direct.directnotify import DirectNotifyGlobal
+from direct.gui import DirectGuiGlobals
+from direct.gui.DirectGui import *
 from otp.otpbase import OTPBase
 from otp.otpbase import OTPLauncherGlobals
 from otp.otpbase import OTPGlobals
-from direct.showbase.PythonUtil import *
 import ToontownGlobals
-from direct.directnotify import DirectNotifyGlobal
 import ToontownLoader
-from direct.gui import DirectGuiGlobals
-from direct.gui.DirectGui import *
-from pandac.PandaModules import *
-import sys
-import os
-import math
 from toontown.toonbase import ToontownAccess
 from toontown.toonbase import TTLocalizer
 from toontown.toonbase import ToontownBattleGlobals
@@ -20,6 +18,7 @@ class ToonBase(OTPBase.OTPBase):
     notify = DirectNotifyGlobal.directNotify.newCategory('ToonBase')
 
     def __init__(self):
+        '''
         if not config.GetInt('ignore-user-options', 0):
             Settings.readSettings()
             mode = not Settings.getWindowedMode()
@@ -45,14 +44,8 @@ class ToonBase(OTPBase.OTPBase):
             loadPrcFileData('toonBase Settings Music Volume', 'audio-master-music-volume %s' % musicVol)
             loadPrcFileData('toonBase Settings Sfx Volume', 'audio-master-sfx-volume %s' % sfxVol)
             loadPrcFileData('toonBase Settings Toon Chat Sounds', 'toon-chat-sounds %s' % toonChatSounds)
+        '''
         OTPBase.OTPBase.__init__(self)
-        if not self.isMainWindowOpen():
-            try:
-                launcher.setPandaErrorCode(7)
-            except:
-                pass
-
-            sys.exit(1)
         self.disableShowbaseMouse()
         base.debugRunningMultiplier /= OTPGlobals.ToonSpeedFactor
         self.toonChatSounds = self.config.GetBool('toon-chat-sounds', 1)
@@ -196,9 +189,9 @@ class ToonBase(OTPBase.OTPBase):
         self.useDrive()
         self.disableMouse()
         if self.mouseInterface:
-            self.mouseInterface.reparentTo(self.dataUnused)
+            self.mouseInterface.detachNode()
         if base.mouse2cam:
-            self.mouse2cam.reparentTo(self.dataUnused)
+            self.mouse2cam.detachNode()
 
     def __walking(self, pressed):
         self.walking = pressed

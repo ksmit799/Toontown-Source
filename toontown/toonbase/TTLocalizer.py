@@ -1,6 +1,6 @@
-from pandac.libpandaexpressModules import *
-import string
-import types
+from panda3d.core import *
+import string, types
+
 try:
     language = getConfigExpress().GetString('language', 'english')
     checkLanguage = getConfigExpress().GetBool('check-language', 0)
@@ -11,15 +11,18 @@ except:
 def getLanguage():
     return language
 
-
 print 'TTLocalizer: Running in language: %s' % language
+
 if language == 'english':
     _languageModule = 'toontown.toonbase.TTLocalizer' + string.capitalize(language)
 else:
     checkLanguage = 1
     _languageModule = 'toontown.toonbase.TTLocalizer_' + language
+
 print 'from ' + _languageModule + ' import *'
+
 from toontown.toonbase.TTLocalizerEnglish import *
+
 if checkLanguage:
     l = {}
     g = {}

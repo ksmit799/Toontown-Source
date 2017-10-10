@@ -6,11 +6,9 @@ class game:
 
 
 __builtin__.game = game()
-import time
-import os
-import sys
-import random
-import __builtin__
+
+import time, os, sys, random
+
 try:
     launcher
 except:
@@ -20,30 +18,42 @@ except:
 
 launcher.setRegistry('EXIT_PAGE', 'normal')
 pollingDelay = 0.5
+
 print 'ToontownStart: Polling for game2 to finish...'
+
 while not launcher.getGame2Done():
     time.sleep(pollingDelay)
 
 print 'ToontownStart: Game2 is finished.'
 print 'ToontownStart: Starting the game.'
-from pandac.PandaModules import *
+
+from panda3d.core import *
+
 if launcher.isDummy():
     http = HTTPClient()
 else:
     http = launcher.http
-tempLoader = PandaLoader()
+
+tempLoader = Loader()
 backgroundNode = tempLoader.loadSync(Filename('phase_3/models/gui/loading-background'))
+
 from direct.gui import DirectGuiGlobals
+
 print 'ToontownStart: setting default font'
+
 import ToontownGlobals
+
 DirectGuiGlobals.setDefaultFontFunc(ToontownGlobals.getInterfaceFont)
 launcher.setPandaErrorCode(7)
+
 import ToonBase
+
 ToonBase.ToonBase()
-from pandac.PandaModules import *
+
 if base.win == None:
     print 'Unable to open window; aborting.'
     sys.exit()
+
 launcher.setPandaErrorCode(0)
 launcher.setPandaWindowOpen()
 ConfigVariableDouble('decompressor-step-time').setValue(0.01)

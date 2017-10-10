@@ -1,9 +1,5 @@
-import sys
-import os
-import time
-import string
-import __builtin__
-from pandac.libpandaexpressModules import *
+import sys, os, time, string, __builtin__
+from panda3d.core import *
 from direct.showbase.MessengerGlobal import *
 from direct.showbase.DirectObject import DirectObject
 from direct.showbase.EventManagerGlobal import *
