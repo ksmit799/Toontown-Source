@@ -1,0 +1,39 @@
+from direct.distributed import DistributedObject/AI/UD
+from direct.distributed import DistributedObjectGlobal/AI/UD
+from otp.distributed import CentralLogger/AI/UD
+
+// #########################
+//    General Definitions
+// #########################
+
+// Defines 'bool' as a usable arg type
+// True or False is stored as either 1 or 0
+typedef uint8 bool;
+
+// #########################
+//    Distributed Objects
+// #########################
+
+struct BarrierData {
+  uint16 context;
+  string name;
+  uint32 avIds[];
+};
+
+dclass DistributedObject {
+  setBarrierData(BarrierData[]) broadcast ram;
+  setBarrierReady(uint16) airecv clsend;
+  execCommand(string, uint32, uint32, uint32);
+  broadcastMessage() broadcast;
+};
+
+dclass DistributedObjectGlobal : DistributedObject {
+};
+
+// #########################
+//      Central Logger
+// #########################
+
+dclass CentralLogger : DistributedObject {
+  sendMessage(string, string, uint32, uint32) clsend;
+};

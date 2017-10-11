@@ -29,6 +29,6 @@ server-version dev-cluster
 account-bridge-filename astron/databases/account-bridge
 accountdb-type developer
 
-# DC Files
-dc-file astron/dclass/otp.dc
+# DC Files - Define them in reverse order otherwise they load in the wrong order
 dc-file astron/dclass/toon.dc
+dc-file astron/dclass/otp.dc

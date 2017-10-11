@@ -1,0 +1,9 @@
+from toontown.toon import DistributedToon/AI/UD
+
+// #########################
+//     Distributed Toon
+// #########################
+
+dclass DistributedToon : DistributedObject {
+	
+};
