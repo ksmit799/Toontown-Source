@@ -21,6 +21,9 @@ class LogAndOutput:
         self.log.flush()
         self.orig.flush()
 
+if not os.path.exists("logs/"):
+    os.makedirs("logs")
+
 log = open("logs/" + logfile, 'a')
 logOut = LogAndOutput(sys.__stdout__, log)
 logErr = LogAndOutput(sys.__stderr__, log)
