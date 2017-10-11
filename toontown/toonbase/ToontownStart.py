@@ -16,18 +16,22 @@ except:
     launcher = ToontownDummyLauncher()
     __builtin__.launcher = launcher
 
-launcher.setRegistry('EXIT_PAGE', 'normal')
-pollingDelay = 0.5
+if not launcher.isDummy():
+    launcher.setRegistry('EXIT_PAGE', 'normal')
+    pollingDelay = 0.5
 
-print 'ToontownStart: Polling for game2 to finish...'
+    print 'ToontownStart: Polling for game2 to finish...'
 
-while not launcher.getGame2Done():
-    time.sleep(pollingDelay)
+    while not launcher.getGame2Done():
+        time.sleep(pollingDelay)
 
-print 'ToontownStart: Game2 is finished.'
+    print 'ToontownStart: Game2 is finished.'
+
 print 'ToontownStart: Starting the game.'
 
 from panda3d.core import *
+
+loadPrcFile('config/dev.prc')
 
 if launcher.isDummy():
     http = HTTPClient()
