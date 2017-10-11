@@ -1,6 +1,5 @@
-import types
-import time
-from pandac.PandaModules import *
+import types, time
+from panda3d.core import *
 from direct.distributed.ClockDelta import *
 from direct.gui.DirectGui import *
 from pandac.PandaModules import *

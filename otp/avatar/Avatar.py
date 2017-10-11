@@ -1,6 +1,6 @@
-from pandac.PandaModules import *
-from libotp import Nametag, NametagGroup
-from libotp import CFSpeech, CFThought, CFTimeout, CFPageButton, CFNoQuitButton, CFQuitButton
+from panda3d.core import *
+from otp.nametag import Nametag, NametagGroup
+from otp.nametag.NametagConstants import CFSpeech, CFThought, CFTimeout, CFPageButton, CFNoQuitButton, CFQuitButton
 from otp.otpbase import OTPGlobals
 from otp.otpbase import OTPLocalizer
 from direct.actor.Actor import Actor
@@ -10,6 +10,7 @@ from otp.avatar.ShadowCaster import ShadowCaster
 import random
 from otp.otpbase import OTPRender
 from direct.showbase.PythonUtil import recordCreationStack
+
 teleportNotify = DirectNotifyGlobal.directNotify.newCategory('Teleport')
 teleportNotify.showTime = True
 if config.GetBool('want-teleport-debug', 1):

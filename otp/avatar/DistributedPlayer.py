@@ -1,19 +1,19 @@
-from pandac.PandaModules import *
-from libotp import WhisperPopup
-from libotp import CFQuicktalker, CFPageButton, CFQuitButton, CFSpeech, CFThought, CFTimeout
+import string, time
+from panda3d.core import *
+from otp.margins import WhisperPopup
+from otp.nametag.NametagConstants import CFQuicktalker, CFPageButton, CFQuitButton, CFSpeech, CFThought, CFTimeout
 from otp.chat import ChatGarbler
-import string
 from direct.task import Task
 from otp.otpbase import OTPLocalizer
 from otp.speedchat import SCDecoders
 from direct.showbase import PythonUtil
 from otp.avatar import DistributedAvatar
-import time
 from otp.avatar import Avatar, PlayerBase
 from otp.chat import TalkAssistant
 from otp.otpbase import OTPGlobals
 from otp.avatar.Avatar import teleportNotify
 from otp.distributed.TelemetryLimited import TelemetryLimited
+
 if base.config.GetBool('want-chatfilter-hacks', 0):
     from otp.switchboard import badwordpy
     import os
