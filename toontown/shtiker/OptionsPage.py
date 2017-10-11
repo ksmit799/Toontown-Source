@@ -1,8 +1,7 @@
-from pandac.PandaModules import *
+from panda3d.core import *
 import ShtikerPage
 from toontown.toontowngui import TTDialog
 from direct.gui.DirectGui import *
-from pandac.PandaModules import *
 from toontown.toonbase import TTLocalizer
 import DisplaySettingsDialog
 from direct.task import Task
@@ -12,6 +11,8 @@ from otp.speedchat import SCStaticTextTerminal
 from direct.showbase import PythonUtil
 from direct.directnotify import DirectNotifyGlobal
 from toontown.toonbase import ToontownGlobals
+from otp.otpbase.Settings import Settings
+
 speedChatStyles = ((2000,
   (200 / 255.0, 60 / 255.0, 229 / 255.0),
   (200 / 255.0, 135 / 255.0, 255 / 255.0),
@@ -122,9 +123,7 @@ class OptionsTabPage(DirectFrame):
     DisplaySettingsDelay = 60
     ChangeDisplaySettings = base.config.GetBool('change-display-settings', 1)
     ChangeDisplayAPI = base.config.GetBool('change-display-api', 0)
-    DisplaySettingsApiMap = {'OpenGL': Settings.GL,
-     'DirectX7': Settings.DX7,
-     'DirectX8': Settings.DX8}
+    DisplaySettingsApiMap = {'OpenGL', 'DirectX7', 'DirectX8'}
 
     def __init__(self, parent = aspect2d):
         self.parent = parent

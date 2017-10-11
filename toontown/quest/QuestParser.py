@@ -1067,13 +1067,7 @@ class NPCMoviePlayer(DirectObject.DirectObject):
 
 
 searchPath = DSearchPath()
-if AppRunnerGlobal.appRunner:
-    searchPath.appendDirectory(Filename.expandFrom('$TT_3_ROOT/phase_3/etc'))
-else:
-    searchPath.appendDirectory(Filename('phase_3/etc'))
-    searchPath.appendDirectory(Filename.fromOsSpecific(os.path.expandvars('$TOONTOWN/src/quest')))
-    searchPath.appendDirectory(Filename.fromOsSpecific('toontown/src/quest'))
-    searchPath.appendDirectory(Filename('.'))
+searchPath.appendDirectory(Filename('resources/phase_3/etc'))
 scriptFile = Filename('QuestScripts.txt')
 found = vfs.resolveFilename(scriptFile, searchPath)
 if not found:

@@ -1,6 +1,7 @@
+# TODO: Load DNA file 'loadDNAFile'
+from panda3d.core import Vec4, CSDefault, TransformState, NodePath, TransparencyAttrib
 from toontown.toonbase import ToontownGlobals
 from direct.interval.IntervalGlobal import Parallel, Sequence, Func, Wait
-from pandac.PandaModules import Vec4, loadDNAFile, CSDefault, TransformState, NodePath, TransparencyAttrib
 
 class HolidayDecorator:
 

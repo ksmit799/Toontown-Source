@@ -1,5 +1,7 @@
-from pandac.PandaModules import *
-from libotp import Nametag, WhisperPopup
+import math, string, random
+from panda3d.core import *
+from otp.nametag import Nametag
+from otp.margins import WhisperPopup
 from direct.gui.DirectGui import *
 from direct.showbase.PythonUtil import *
 from direct.interval.IntervalGlobal import *
@@ -12,9 +14,6 @@ from direct.task import Task
 import PositionExaminer
 from otp.otpbase import OTPGlobals
 from otp.otpbase import OTPRender
-import math
-import string
-import random
 from direct.directnotify import DirectNotifyGlobal
 from direct.distributed import DistributedSmoothNode
 from direct.gui import DirectGuiGlobals
